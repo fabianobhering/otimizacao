@@ -66,6 +66,12 @@ def geraCentrosIniciais(tamanhoDaMatriz, numeroDeCentros):
 	return centrosIniciais
 
 
+def pegaAleatorio(lista):
+	tamanho = len(lista)
+	posicao = randrange(0, tamanho)
+	return posicao
+
+
 matriz = [[None, 3, None, 4, None, None, None, None, None, None, None, None, None, None, None],
 		  [3, None, 5, None, None, None, 3, None, None, None, None, None, None, None, None],
 		  [None, 5, None, 2, None, 8, 1, None, None, None, None, None, None, None, None],
@@ -119,7 +125,8 @@ while True:
 	# Enquanto ainda tiver opcoes na lista de vizinhos, buscar o melhor vizinho
 	while centrosVizinhos:
 		custo = 0
-		centros = centrosVizinhos.pop(0)
+		posicao = pegaAleatorio(centrosVizinhos)
+		centros = centrosVizinhos.pop(posicao)
 		#print centros
 
 		for i in range(len(matriz)):
